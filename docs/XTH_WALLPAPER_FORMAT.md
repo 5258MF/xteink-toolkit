@@ -2,6 +2,8 @@
 
 Version 1.0 · applies to `.xth` files consumed by XTEINK X3 firmware V6.4.x
 
+**English** | [简体中文](XTH_WALLPAPER_FORMAT.zh-CN.md)
+
 ---
 
 ## 1. Scope

@@ -14,7 +14,7 @@
 | `img2xth.py` | 任意图片 | `.xth` | 2-bit 全屏壁纸，4 级抖动 |
 
 三种格式都没有官方文档，全部由逆向得出。证据与推导过程见项目内
-`docs/XTF_FORMAT_SPEC.md` 与 `docs/XTH_WALLPAPER_FORMAT.md`。
+[`docs/XTF_FORMAT_SPEC.md`](docs/XTF_FORMAT_SPEC.zh-CN.md) 与 [`docs/XTH_WALLPAPER_FORMAT.md`](docs/XTH_WALLPAPER_FORMAT.zh-CN.md)（各有英文原版）。
 
 ---
 

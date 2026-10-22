@@ -2,6 +2,8 @@
 
 Version 1.0 · applies to `.xtf` files consumed by XTEINK X3 firmware V6.4.x
 
+**English** | [简体中文](XTF_FORMAT_SPEC.zh-CN.md)
+
 ---
 
 ## 1. Scope

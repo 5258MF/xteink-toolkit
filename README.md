@@ -16,8 +16,8 @@ device reads, from scratch:
 
 None of these formats is documented by the vendor. All three were reverse
 engineered; the evidence and derivation live in
-[`docs/XTF_FORMAT_SPEC.md`](docs/XTF_FORMAT_SPEC.md) and
-[`docs/XTH_WALLPAPER_FORMAT.md`](docs/XTH_WALLPAPER_FORMAT.md).
+[`docs/XTF_FORMAT_SPEC.md`](docs/XTF_FORMAT_SPEC.md) ([中文](docs/XTF_FORMAT_SPEC.zh-CN.md)) and
+[`docs/XTH_WALLPAPER_FORMAT.md`](docs/XTH_WALLPAPER_FORMAT.md) ([中文](docs/XTH_WALLPAPER_FORMAT.zh-CN.md)).
 
 ---
 
