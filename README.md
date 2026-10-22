@@ -258,6 +258,18 @@ model, please open an issue with the model and firmware version.
 `.xtf` has deterministic proof; `.bin` is visually consistent; `.xth` is
 round-trip consistent.
 
+A standalone validator implements the conformance sections of both specs:
+
+```bash
+python conformance_check.py --all .
+python conformance_check.py font.xtf wall.xth
+```
+
+It checks 13 structural rules for `.xtf` (header consistency, interval table
+sums, record size, terminators, and that no ink sits at or past the layout pitch)
+and 5 for `.xth`. It reports structure only — whether the glyphs or image look
+right is a separate question.
+
 ---
 
 ## License

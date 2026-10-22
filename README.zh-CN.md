@@ -234,6 +234,16 @@ python img2xth.py art.png --width 480 --height 800
 
 `.xtf` 有确定性证据；`.bin` 是视觉一致；`.xth` 是往返自洽。
 
+附带的校验器实现了两份规范里的一致性要求：
+
+```bash
+python conformance_check.py --all .
+python conformance_check.py font.xtf wall.xth
+```
+
+`.xtf` 查 13 条结构规则（header 自洽、区间表累加、记录尺寸、终止字节，以及
+排版权之外不得有墨迹），`.xth` 查 5 条。它只判断结构，字形和画面好不好看是另一回事。
+
 ---
 
 ## 许可
