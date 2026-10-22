@@ -1,4 +1,4 @@
-# XTH Wallpaper Container — Format Specification
+# XTH Wallpaper Container: Format Specification
 
 Version 1.0 · applies to `.xth` files consumed by XTEINK X3 firmware V6.4.x
 
@@ -221,7 +221,7 @@ Level histogram after decoding: 0 → 51.6 %, 1 → 23.3 %, 2 → 23.0 %, 3 → 
 
 ---
 
-## Appendix A — Reference implementation
+## Appendix A. Reference implementation
 
 | File | Purpose |
 |---|---|
@@ -238,7 +238,7 @@ accordingly. Only the 528 × 792 configuration has been verified on hardware.
 
 ---
 
-## Appendix B — Decoding reference
+## Appendix B. Decoding reference
 
 ```python
 import struct

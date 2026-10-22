@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""img2xth — convert any image into the XTEINK X3 ``.xth`` wallpaper format.
+"""img2xth: convert any image into the XTEINK X3 ``.xth`` wallpaper format.
 
 Format summary (reverse engineered, see the project's XTH_WALLPAPER_FORMAT.md):
 
@@ -140,7 +140,7 @@ def dither_bayer(gray: np.ndarray, order: int = 3) -> np.ndarray:
 
 
 def pack_plane(bitmap: np.ndarray) -> bytes:
-    """Column-major, horizontally mirrored, MSB first — the panel's scan order."""
+    """Column-major, horizontally mirrored, MSB first, matching the panel's scan order."""
     return np.packbits(bitmap[:, ::-1].T.ravel().astype(np.uint8)).tobytes()
 
 

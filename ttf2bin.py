@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""ttf2bin — convert a TrueType/OpenType font into the XTEINK X3 ``.bin`` format.
+"""ttf2bin: convert a TrueType/OpenType font into the XTEINK X3 ``.bin`` format.
 
 Format summary (reverse engineered, see the project spec for the evidence):
 

@@ -2,7 +2,7 @@
 
 **English** | [简体中文](README.zh-CN.md)
 
-Font and wallpaper converters for the **XTEINK X3** e-reader — 528 × 792, 259 ppi,
+Font and wallpaper converters for the **XTEINK X3** e-reader. 528 × 792, 259 ppi,
 4-level greyscale (SSD1677).
 
 Three standalone command line tools that generate the three container formats this
@@ -27,7 +27,7 @@ engineered; the evidence and derivation live in
 pip install pillow numpy fonttools
 ```
 
-Python 3.9+. The three scripts are independent — no shared module.
+Python 3.9+. The three scripts are independent. No shared module.
 
 ---
 
@@ -80,7 +80,7 @@ W=43 and W=44 both give 11 characters: stored rows are byte aligned
 (`ceil(W/8) * 8 = 48` bits), so both hold the same bitmap width. To fit 12
 characters into 528 px, `W` must be ≤ 40.
 
-`.bin` is 1 bit — **no antialiasing**, by format design. Grey edges require `.xtf`.
+`.bin` is 1 bit, **no antialiasing**, by format design. Grey edges require `.xtf`.
 
 ---
 
@@ -116,7 +116,7 @@ The face then exceeds the advance, so something has to give:
 and side radicals visibly lose weight. Cropping keeps stroke weight and only
 trims the right edge.
 
-**Crop from column 0.** The left edge of a probe set is not a safe origin — 28
+**Crop from column 0.** The left edge of a probe set is not a safe origin; 28
 common characters may report their leftmost ink at column 3, while a character
 like 钧 starts at column 0. Cropping from 3 slices the first stroke off the
 radical.
@@ -131,7 +131,7 @@ Governed by `0x0a`:
 | 46 | 11? | **unverified** |
 | 47 | 10 | verified |
 
-The middle value can only be settled on hardware — don't trust the formula alone.
+The middle value can only be settled on hardware; don't trust the formula alone.
 
 ---
 
@@ -151,7 +151,7 @@ Two 1-bit planes, 52,272 bytes each
 level = (planeB << 1) | planeA     0 = paper white, 3 = ink black
 ```
 
-**Planes are stored column-major** — 792 consecutive bits form one image column —
+**Planes are stored column-major**. 792 consecutive bits form one image column,
 and the stored image is horizontally mirrored. Decoding needs
 `bits.reshape(w, h).T[:, ::-1]`, and encoding does the reverse. The mirror is not
 a bug: it is the panel's scan order. Skip it and the wallpaper comes out flipped.
@@ -178,17 +178,17 @@ a bug: it is the panel's scan order. Skip it and the wallpaper comes out flipped
 ```
 
 Everything after that is glyph data the tool generates itself. Rebuilding from
-the skeleton instead of a complete vendor font produces a byte-identical file —
+the skeleton instead of a complete vendor font produces a byte-identical file,
 `SHA256 2E2E42D4...FFD04308B`, verified.
 
 A skeleton is still required because three header fields have no known formula
-and must be inherited:
+and must be inherited.
 
-- `0x0d`, `0x0e` — purpose unknown
-- `0x30..0x37` — 8 bytes, differs between samples, purpose unknown
+- `0x0d`, `0x0e`: purpose unknown
+- `0x30..0x37`: 8 bytes, differs between samples, purpose unknown
 
-The rest — `0x0a`, `0x0b`, `0x0c`, `0x14`, `0x18`, `0x24`, `0x28`, `0x2c`, `0x38`,
-`0x3c` — is recomputed by the tool.
+The rest (`0x0a`, `0x0b`, `0x0c`, `0x14`, `0x18`, `0x24`, `0x28`, `0x2c`, `0x38`,
+`0x3c`) is recomputed by the tool.
 
 `skel_g52.bin` comes from a 40 pt sample (gridH 52), `skel_g59.bin` from a 46 pt
 sample (gridH 59). Both contain metadata only, no glyph outlines. The 95-byte tail
@@ -203,8 +203,8 @@ blank.
 
 ## Compatibility
 
-**Verified on the XTEINK X3 only** (528 × 792, 4-level greyscale). The firmware
-contains only `xteink.cn` and `X3-CH` style strings — no trace of any other model,
+**These tools are verified on the XTEINK X3 only** (528 × 792, 4-level greyscale). The firmware
+contains only `xteink.cn` and `X3-CH` style strings, with no trace of any other model,
 so there is currently no evidence either way for other devices.
 
 The three formats do not depend on the device equally:
@@ -229,7 +229,7 @@ Wallpapers at a non-528 width print a warning: the size goes into the header, bu
 it has **not been tested on hardware**. If you get it working on another XTEINK
 model, please open an issue with the model and firmware version.
 
-`ttf2xtf` has no `--screen-width` on purpose — its chars/line formula
+`ttf2xtf` has no `--screen-width` on purpose: its chars/line formula
 `57 - 0x0a` was fitted at 528 px and does not survive a different width.
 
 ---
@@ -241,7 +241,7 @@ model, please open an issue with the model and firmware version.
 - `.xtf` interval tables cannot yet be generated from a font `cmap`; they follow the skeleton.
 - Skeleton coverage is CJK + Latin; no emoji or supplementary planes.
 - `ttf2bin` rendering cannot be matched byte for byte against arbitrary existing
-  `.bin` files — there is no vendor sample to reverse the parameters from, so the
+  `.bin` files, because there is no vendor sample to reverse the parameters from, so the
   defaults are simply a working set.
 - `img2xth` uses a pure-Python Floyd-Steinberg loop; 528×792 takes a few seconds.
 
@@ -267,14 +267,14 @@ python conformance_check.py font.xtf wall.xth
 
 It checks 13 structural rules for `.xtf` (header consistency, interval table
 sums, record size, terminators, and that no ink sits at or past the layout pitch)
-and 5 for `.xth`. It reports structure only — whether the glyphs or image look
+and 5 for `.xth`. It reports structure only. Whether the glyphs or image look
 right is a separate question.
 
 ---
 
 ## License
 
-MIT — see [LICENSE](LICENSE).
+MIT. See [LICENSE](LICENSE).
 
 Fonts and images remain the property of their respective owners. This project only
 converts formats and ships no fonts or artwork.

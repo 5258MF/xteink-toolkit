@@ -1,4 +1,4 @@
-# XTF Font Container — Format Specification
+# XTF Font Container: Format Specification
 
 Version 1.0 · applies to `.xtf` files consumed by XTEINK X3 firmware V6.4.x
 
@@ -101,7 +101,7 @@ P      = 1 + gridH × stride + 1     bytes per glyph record
 
 `gridH` and the render `em` are independent inputs. `gridH` is the row pitch;
 `em` is the drawing size. A renderer MAY draw at an em larger than the layout
-pitch, in which case the glyph face exceeds its advance — see §8.3.
+pitch, in which case the glyph face exceeds its advance; see §8.3.
 
 `0x0b` and `0x0c` do NOT have a cross-size formula. Values from samples:
 `(40 pt → 52/40)`, `(43 pt → 57/43)`, `(46 pt → 59/46)`. For an arbitrary
@@ -174,7 +174,7 @@ Contents are 95 bytes in the range 8..34, and the values scale with `gridH`:
 | 46 pt | 59 | 2022 | 9 | 34 |
 
 `2022 / 1782 = 1.135` and `59 / 52 = 1.135`. The scaling is proportional to
-`gridH`, but individual entries are not interpolatable — the mapping from one
+`gridH`, but individual entries are not interpolatable. The mapping from one
 `gridH` to another is not a fixed multiplier per byte.
 
 Requirement: an implementation MUST copy the 95 bytes verbatim from a sample.
@@ -313,7 +313,7 @@ Measured panel reflectances for the four levels:
 | 3 | 0.000 |
 
 Level 2 is only 13 % as bright as paper, so a cut point of 128/255 maps a 50 %
-coverage pixel — a barely visible antialias fringe — onto a near-black level.
+coverage pixel (a barely visible antialias fringe) onto a near-black level.
 Raising the cuts to `96/160/224` reduces isolated fringe pixels at the cost of
 slightly thinner strokes. An implementation MAY expose the cuts as a parameter.
 
