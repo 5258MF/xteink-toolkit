@@ -1,0 +1,16 @@
+__pycache__/
+*.py[cod]
+.venv/
+venv/
+out/
+.DS_Store
+
+# build products
+*.xth
+*.xtf
+*.ttf
+*.otf
+
+# .bin is both a build product and the skeleton format -- keep the skeletons
+*.bin
+!skeletons/*.bin
